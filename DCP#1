@@ -1,0 +1,63 @@
+import java.util.*;
+import java.io.*;
+
+public class One
+{
+    public static void main(String[] args)
+    {
+        int k,a=0,diff=0,d=0;
+        Integer temp=0;
+        String s;
+        boolean output=true;
+        Scanner sc= new Scanner(System.in);
+        ArrayList<Integer> l= new ArrayList<Integer>();
+        System.out.println("\n------------------------------------------------------------------\n");
+        System.out.println("Enter List: [DO NOT USE SPACES; SEPERATE NUMBERS USING COMMAS ONLY] ");
+        s=sc.nextLine();
+        for(String str : s.split(","))
+        {
+            l.add(Integer.parseInt(str));
+            a++;
+        }
+        
+        /*for(a=0;temp!=9999;a++)
+        {
+            temp=sc.nextInt();
+            l.add(temp);
+        }*/
+        
+        a=a-1; //a-->size of list
+        //l.remove(a);
+        
+        System.out.print("Enter value of k: ");
+        k=sc.nextInt();
+        temp=0;
+        for(int i=0;i<a ;i++)
+        {
+            temp=l.get(i);
+            if(temp==k)
+            {
+               System.out.println("\n\nResult:\n"+k+" is already a value in the given list"); 
+               break;
+            }
+            if(temp>k)
+                output=false;
+            else
+            {
+                diff=k-temp;
+                d=l.indexOf(diff);
+                if(d==-1)
+                        output= false;
+                else 
+                   {
+                       output = true;
+                       break;
+                   }
+            }
+        }
+        if(output==true && temp!=k)
+        System.out.println("\n\nResult:\n"+k+" EXISTS as a sum in the given list"+"\n"+temp+"+"+diff+"="+k+"\n\n");
+        else if(output==false && temp!=k)
+        System.out.println("\n\nResult:\n"+k+" DOES NOT EXIST as a sum in the given list");
+    }
+}
