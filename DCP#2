@@ -1,0 +1,39 @@
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+public class Two
+{
+    public static void main(String[] args)
+    {
+        Integer[] a,b;
+        int i=0,temp=1,len;
+        Scanner sc=new Scanner(System.in);
+        String s;
+        System.out.println("\n\nInput array: ");
+        s=sc.nextLine();
+        len=s.length();
+        a=new Integer[len];
+        for(String str: s.split(","))
+        {
+            a[i]=Integer.parseInt(str);
+            i++;
+        }
+        b=new Integer[i];
+        System.out.println("\nOutput array: ");
+        for(int j=0;j<i;j++)
+        {
+            for(int k=0; k<i ;k++)
+            {
+                if(k!=j)
+                temp=temp*a[k];
+            }
+          b[j]=temp;
+          temp=1;
+        }
+        
+        for(int j=0;j<i;j++)
+        {
+        System.out.print(b[j]+" ");
+        }
+    }
+}
