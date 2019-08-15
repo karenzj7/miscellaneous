@@ -1,0 +1,34 @@
+/*
+Implement an autocomplete system. That is, given a query string 's' and a set of all possible query strings, return all strings in the set that have s as a prefix.
+For example, given the query string 'de' and the set of strings [dog,deer,deal], return 'deer' and 'deal'.
+*/
+import java.util.HashSet;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Five {
+	public static void main(String[] args) throws IOException
+	{
+	HashSet<String> history =new HashSet<String>();
+	history.add("dear");
+	history.add("deal");
+	history.add("dog");
+	history.add("dump");
+	history.add("duke");
+	
+	BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+	System.out.println("Query: ");
+	String q=br.readLine();
+	
+	Iterator<String> i =history.iterator();
+	while(i.hasNext())
+	{
+		String check=i.next();
+		if(check.startsWith(q))
+			System.out.println(check);
+	}
+	
+	}
+}
