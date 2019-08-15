@@ -1,0 +1,55 @@
+/*
+Given the mapping a=1, b=2, ... z=26, and an encoded message, count the number of ways it can be decoded.
+For example, the message '111' would give 3 since it could be decoded as 'aaa', 'ka', and 'ak'.
+You can assume that the message is decodable. For example, '001' is not allowed.
+*/
+import java.util.Scanner;
+
+public class Four {
+
+	public static void main(String[] args)
+	{
+		String s;
+		int n, counter,x=0, len, flag2=0; 
+		System.out.print("Enter the encoded message[max length=4]: ");
+		Scanner sc = new Scanner(System.in);
+		n=sc.nextInt();
+	
+		if (n>=10 && n<=99) len=2;
+		else if(n>=100 && n<=999) len=3;
+		else if(n>=1000 && n<=9999) len=4;
+		else len=1;
+		x=n;
+		counter=1; //all digits form a combination
+		
+		if(len==1){System.out.println("Message too short! 0 values not permitted.");return;}
+		
+		for(int i=0;i<len-1;i++)
+		{
+			int t=x%100;
+			
+			if(t<26)
+				{counter++; System.out.println("-"+t);	}	//assuming only one 2digit pair
+			x=x/10;
+			
+			if(flag2==2)
+			{
+				x=n%100;
+				if(x<26)counter++; //assuming two 2digit pairs
+			}
+			flag2++;
+		}
+		System.out.print(counter);	
+	
+	}
+}
+
+/*
+1229 -> abbi lbi avi          3
+1221 -> abba lba ava abu lu   5
+111  -> aaa ka ak             3
+119  -> aai ki as             3
+199  -> aii si                2
+17   -> ag q                  2
+002                         -error-
+*/
