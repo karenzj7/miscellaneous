@@ -65,3 +65,39 @@ public class One
         System.out.println("\n\nResult:\n"+k+" DOES NOT EXIST as a sum in the given list");
     }
 }
+/*
+
+------------------------------------------------------------------
+
+Enter List: [DO NOT USE SPACES; SEPERATE NUMBERS USING COMMAS ONLY] 
+7,3,1
+Enter value of k: 7
+
+
+Result:
+7 is already a value in the given list
+
+
+------------------------------------------------------------------
+
+Enter List: [DO NOT USE SPACES; SEPERATE NUMBERS USING COMMAS ONLY] 
+7,3,1
+Enter value of k: 4
+
+
+Result:
+4 EXISTS as a sum in the given list
+3+1=4
+
+
+------------------------------------------------------------------
+
+Enter List: [DO NOT USE SPACES; SEPERATE NUMBERS USING COMMAS ONLY] 
+7,3,1
+Enter value of k: 49
+
+
+Result:
+49 DOES NOT EXIST as a sum in the given list
+
+ */
