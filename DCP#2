@@ -42,3 +42,26 @@ public class Two
         }
     }
 }
+/*
+Input array: 
+0,1,2,3
+
+Output array: 
+6 0 0 0 
+
+
+
+Input array: 
+1,2,3,4,5
+
+Output array: 
+120 60 40 30 24 
+
+
+
+Input array: 
+-1,2,3
+
+Output array: 
+6 -3 -2 
+*/
