@@ -22,14 +22,14 @@ public class Four {
 		x=n;
 		counter=1; //all digits form a combination
 		
-		if(len==1){System.out.println("Message too short! 0 values not permitted.");return;}
+		if(len==1){System.out.println("Message invalid! 0 values not permitted.");return;}
 		
 		for(int i=0;i<len-1;i++)
 		{
 			int t=x%100;
 			
 			if(t<26)
-				{counter++; System.out.println("-"+t);	}	//assuming only one 2digit pair
+				{counter++; /*System.out.println("-"+t);*/	}	//assuming only one 2digit pair
 			x=x/10;
 			
 			if(flag2==2)
