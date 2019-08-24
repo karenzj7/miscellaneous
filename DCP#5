@@ -28,7 +28,28 @@ public class Five {
 		String check=i.next();
 		if(check.startsWith(q))
 			System.out.println(check);
+		else
+			{System.out.print("no autocomplete predictions");break;}
 	}
 	
 	}
 }
+/*
+Query: 
+de
+deal
+dear
+
+
+
+Query: 
+du
+duke
+dump
+
+
+
+Query: 
+av
+no autocomplete predictions
+*/
