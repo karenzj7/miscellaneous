@@ -1,0 +1,101 @@
+/*
+Given a string consisting solely of (, ), and *; where * can represent either a (, ), or an empty string. 
+Determine whether the parantheses are balanced. (i.e. both closed as well as nested properly)
+For example, (()* and (*) are balanced. )*( is not balanced.
+*/
+import java.util.Scanner;
+public class Six 
+	{
+	public static void main(String args[])
+		{
+			int flag=0, i,j,k;
+			System.out.println("Enter a string: ");
+			Scanner sc= new Scanner(System.in);
+			String str=sc.nextLine();
+			StringBuilder s = new StringBuilder(str);
+			System.out.print(s+"  is ");
+			
+			if (s.charAt(0)==')' || s.charAt(s.length()-1)=='('){
+				System.out.println("UNBALANCED");	
+				return;	}
+			
+			for (i=s.length()-1; i>=0 ;i--){
+				if(s.charAt(i)=='('){
+					for(j=i+1;j<=(s.length())-1;j++){
+						if(s.charAt(j)==')')
+						{
+							s.setCharAt(j, 'x');
+							s.setCharAt(i, 'x');
+							break;
+						}}}} 
+			
+			for (k=0; k<=s.length()-1 ;k++)
+				if(s.charAt(k)!='x'&&s.charAt(k)!='*')
+				flag=1;
+			
+			
+			if (flag!=0) 
+			{ flag=0;
+					for (i=s.length()-1; i>=0 ;i--){
+						if(s.charAt(i)=='('){
+							for(j=i+1;j<=(s.length())-1;j++){
+								if(s.charAt(j)=='*') 
+								{
+								s.setCharAt(j, 'x');
+								s.setCharAt(i, 'x');
+								break;}
+							}}}}
+			
+			for (k=0; k<=s.length()-1 ;k++)
+				if(s.charAt(k)!='x'&&s.charAt(k)!='*')
+					flag=1;
+			
+			
+			if(flag!=0) 
+				{flag=0;
+					for (i=s.length()-1; i>=0 ;i--){
+						if(s.charAt(i)=='*'){
+							for(j=i+1;j<=(s.length())-1;j++){
+								if(s.charAt(j)==')') 
+								{
+								s.setCharAt(j, 'x');
+								s.setCharAt(i, 'x');
+								break;
+								}}}}}
+			
+			for (k=0; k<=s.length()-1 ;k++)
+				if(s.charAt(k)!='x'&&s.charAt(k)!='*')
+					flag=1;
+			
+				if(flag==1){
+				System.out.println("UNBALANCED");
+				return;	
+				}
+				else{
+				System.out.println("BALANCED");
+				return;	}
+			}
+	}
+
+/*
+
+()*()     BALANCED
+*)()      BALANCED
+*)*)      BALANCED
+(*)       BALANCED
+((*)      BALANCED
+(**       BALANCED
+(*)*      BALANCED
+*()       BALANCED
+*(())     BALANCED
+***       BALANCED
+(()*())   BALANCED
+(()())    BALANCED
+
+)*(       UNBALANCED
+(((       UNBALANCED
+()()()((  UNBALANCED
+(()       UNBALANCED
+(())())   UNBALANCED
+
+*/
